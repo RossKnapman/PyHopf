@@ -4,6 +4,21 @@ import warnings
 
 class HopfIndexCalculator:
 
+    """
+    Class to calculate the Hopf index of a vector field using various methods.
+    
+    Parameters:
+        m (np.ndarray): Vector field array of shape (Nx, Ny, Nz, 3).
+        method_name (str): Method to use for the calculation. Options are:
+                           'twopointstencil', 'fivepointstencil', 'solidangle', 'solidanglefourier'.
+        Delta_x (float, optional): Grid spacing in the x-direction. Default is 1.0.
+        Delta_y (float, optional): Grid spacing in the y-direction. Default is 1.0.
+        Delta_z (float, optional): Grid spacing in the z-direction. Default is 1.0.
+    
+    Raises:
+        ValueError: If the method_name is not a valid option or if `m` is not a 4D array with a shape of (Nx, Ny, Nz, 3).
+    """
+
     def __init__(self, m, method_name, Delta_x=1.0, Delta_y=1.0, Delta_z=1.0):
         self.m      = m
         self.method_name = method_name
@@ -19,7 +34,12 @@ class HopfIndexCalculator:
 
 
     def hopf_index(self):
+        """
+        Calculate the Hopf index based on the selected method.
 
+        Returns:
+            float: Hopf index value.
+        """
         if self.method_name == 'solidanglefourier':
             return self._hopf_index_solid_angle_fourier()
 
@@ -28,7 +48,15 @@ class HopfIndexCalculator:
 
 
     def hopf_density(self):
+        """
+        Calculate the Hopf density for real-space methods.
 
+        Returns:
+            np.ndarray: Array representing Hopf density.
+
+        Raises:
+            ValueError: If the calculation is attempted with 'solidanglefourier' method.
+        """
         if self.method_name == 'solidanglefourier':
             raise ValueError('Hopf density calculation only available for real-space methods.')
 
@@ -39,7 +67,15 @@ class HopfIndexCalculator:
 
 
     def emergent_field(self):
+        """
+        Compute the emergent field using the specified method.
 
+        Returns:
+            np.ndarray: Array representing the emergent field.
+
+        Raises:
+            ValueError: If method 'solidanglefourier' is used but emergent_field calculation is attempted.
+        """
         if self.method_name == 'solidanglefourier':
             raise ValueError('Emergent field calculation only available for real-space methods.')
 
