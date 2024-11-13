@@ -2,10 +2,19 @@
 
 This package provides Python implementations of the calculation of the Hopf index of the magnetisation texture for finite-difference micromagnetic simulations. The four methods implemented are `twopointstencil`, `fivepointstencil`, `solidangle`, and `solidanglefourier`. The package assumes NumPy arrays of the shape `(Nx, Ny, Nz, 3)`, where $N_i$ are the number of cells in each direction, and the final dimension is for the three components. It is assumed that the vector field is normalised.
 
+
+## Installation
+
+```
+pip install pyhopf
+```
+
+## Usage
+
 Example usage to calculate the Hopf index, Hopf density $\boldsymbol{F} \cdot \boldsymbol{A}$, and emergent magnetic field of a vector field stored in a file `Magnetisation.npy` using the solid angle method is shown in the following.
 
 ```python
-from PythonHopfIndex.hopfindex import HopfIndexCalculator
+from pyhopf.hopfindex import HopfIndexCalculator
 
 m = np.load('Magnetisation.npy')
 
