@@ -5,7 +5,7 @@ This package provides Python implementations of the calculation of the Hopf inde
 Example usage to calculate the Hopf index, Hopf density $\boldsymbol{F} \cdot \boldsymbol{A}$, and emergent magnetic field of a vector field stored in a file `Magnetisation.npy` using the solid angle method is shown in the following.
 
 ```python
-from PythonHopfIndex.hopfindex import HopfIndexCalculator
+from pyhopf.hopfindex import HopfIndexCalculator
 
 m = np.load('Magnetisation.npy')
 
