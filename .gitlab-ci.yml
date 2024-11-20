@@ -3,14 +3,13 @@ stages:
 
 pages:
   stage: deploy
-  image: python:3.12-slim
+  image: python:3.12
   before_script:
-    - apt-get update && apt-get install make --no-install-recommends -y
-    - python -m pip install sphinx sphinx_rtd_theme
+    - python -m pip install make sphinx sphinx_rtd_theme
   script:
     - cd docs && make html
   after_script:
-    - mv docs/build/html/ ./public/
+    - mv docs/build/html ./public
   artifacts:
     paths:
     - public
