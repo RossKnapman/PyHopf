@@ -5,7 +5,7 @@ pages:
   stage: deploy
   image: python:3.12
   before_script:
-    - python -m pip install make sphinx sphinx_rtd_theme
+    - python -m pip install make sphinx sphinx_rtd_theme numpy
   script:
     - cd docs && make html
   after_script:
