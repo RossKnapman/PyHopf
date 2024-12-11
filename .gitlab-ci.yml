@@ -1,5 +1,17 @@
 stages:
+  - test
   - deploy
+
+test:
+  stage: test
+  image: python:3.12
+  before_script:
+    - pip install .[test]
+  script:
+    - pytest
+  artifacts:
+    paths:
+      - htmlcov
 
 pages:
   stage: deploy
