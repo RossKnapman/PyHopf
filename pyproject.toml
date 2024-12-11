@@ -35,6 +35,15 @@ dependencies = [
     "numpy"
 ]
 
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov"
+]
+
+[tool.pytest.ini_options]
+addopts = "--exitfirst --verbose --failed-first --cov=pyhopf --cov-report=html"
+
 [project.urls]
 Homepage = "https://git.uni-due.de/twist-external/numericalhopfindexcalculation/numericalhopfindexcalculation_pythonhopfindex"
 Issues = "https://git.uni-due.de/twist-external/numericalhopfindexcalculation/numericalhopfindexcalculation_pythonhopfindex/-/issues"
