@@ -257,7 +257,7 @@ class HopfIndexCalculator:
         Fy_k = np.fft.fftn(F[:, :, :, 1])
         Fz_k = np.fft.fftn(F[:, :, :, 2])
 
-        F_k = np.zeros((Nx, Ny, Nz, 3), dtype=np.complex_)
+        F_k = np.zeros((Nx, Ny, Nz, 3), dtype=np.complex128)
         F_k[:, :, :, 0] = Fx_k
         F_k[:, :, :, 1] = Fy_k
         F_k[:, :, :, 2] = Fz_k
